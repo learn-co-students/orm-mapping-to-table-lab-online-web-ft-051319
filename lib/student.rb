@@ -1,5 +1,3 @@
-require 'pry'
-
 class Student
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]  
@@ -22,10 +20,13 @@ class Student
     );
     SQL
     DB[:conn].execute(sql)
+
+    # CREATE TABLE IF NOT EXISTS students...
   end
 
   def self.drop_table
     sql = "DROP TABLE students;"
+    # sql = "DROP TABLE IF EXISTS students"
     DB[:conn].execute(sql)
   end
 
